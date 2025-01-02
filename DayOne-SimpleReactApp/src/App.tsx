@@ -4,7 +4,7 @@ import HelloWorld from "./components/hello";
 function App() {
   return (
     <>
-      <HelloWorld />
+      <HelloWorld name={"Eghosa"} age={49} />
     </>
   );
 }
