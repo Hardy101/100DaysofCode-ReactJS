@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+// Day one
+/* 
 // Properties (props)
 interface GreetingProps {
   name: String;
@@ -44,3 +46,45 @@ const HelloWorld: React.FC<GreetingProps> = ({ name, age }) => {
   );
 };
 export default HelloWorld;
+*/
+
+// Day 3 - Conditional Rendering, Lists and keys
+const ConditionalRendering = () => {
+  const [isLoggedIn, setisLoggedIn] = useState(false);
+
+  const toggleLoggedIn = () => {
+    setisLoggedIn(!isLoggedIn);
+  };
+
+  const navLinks = [
+    { id: 0, title: "Home" },
+    { id: 1, title: "About" },
+    { id: 2, title: "Services" },
+    { id: 3, title: "Contact" },
+  ];
+
+  return (
+    <main className="p-4">
+      <h1 className="font-bold text-3xl">Day #3 conditional rendering</h1>
+      <p className="mt-4">
+        <button
+          onClick={toggleLoggedIn}
+          className="text-xs bg-[#f5f5f5] px-4 py-2 font-bold"
+        >
+          {isLoggedIn ? "Logout" : "Login"}
+        </button>
+      </p>
+      <p className="mt-4">
+        {isLoggedIn && (
+          <ul className="flex gap-4 text-xs font-bold">
+            {navLinks.map((link) => (
+              <li key={link.id}> {link.title} </li>
+            ))}
+          </ul>
+        )}
+      </p>
+    </main>
+  );
+};
+
+export default ConditionalRendering;
