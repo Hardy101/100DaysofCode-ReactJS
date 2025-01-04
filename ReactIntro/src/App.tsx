@@ -1,11 +1,11 @@
 import "./App.css";
-import ConditionalRendering from "./components/hello";
+import BasicForm from "./components/hello";
 
 function App() {
   return (
     <>
       {/* <HelloWorld name={"Eghosa"} age={49} /> */}
-      <ConditionalRendering />
+      <BasicForm />
     </>
   );
 }

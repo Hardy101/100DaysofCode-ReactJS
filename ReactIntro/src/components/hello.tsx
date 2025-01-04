@@ -46,7 +46,7 @@ const HelloWorld: React.FC<GreetingProps> = ({ name, age }) => {
   );
 };
 export default HelloWorld;
-*/
+
 
 // Day 3 - Conditional Rendering, Lists and keys
 const ConditionalRendering = () => {
@@ -88,3 +88,15 @@ const ConditionalRendering = () => {
 };
 
 export default ConditionalRendering;
+*/
+
+const BasicForm = () => {
+  return (
+    <>
+      <h1>Form</h1>
+    </>
+  );
+};
+
+
+export default BasicForm
