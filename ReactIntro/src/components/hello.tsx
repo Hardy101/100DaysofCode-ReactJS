@@ -91,12 +91,35 @@ export default ConditionalRendering;
 */
 
 const BasicForm = () => {
+  const [name, setName] = useState("");
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+    alert(`Hello ${name}!`);
+  };
+
   return (
     <>
       <h1>Form</h1>
+      <form
+        onSubmit={handleSubmit}
+        className="bg-[#f5f5f5] rounded-3xl flex w-1/3 p-4"
+      >
+        <label>
+          Name:
+          <input
+            type="text"
+            value={name}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setName(e.target.value)
+            }
+            className="bg-transparent"
+          />
+        </label>
+        <button type="submit">Submit</button>
+      </form>
     </>
   );
 };
 
-
-export default BasicForm
+export default BasicForm;
