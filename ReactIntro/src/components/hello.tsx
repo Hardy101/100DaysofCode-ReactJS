@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-// Day one
+// Day One
 /* 
 // Properties (props)
 interface GreetingProps {
@@ -88,8 +88,9 @@ const ConditionalRendering = () => {
 };
 
 export default ConditionalRendering;
-*/
 
+
+// Day four - five
 interface FormData {
   name: string;
   email: string;
@@ -167,3 +168,39 @@ const BasicForm = () => {
 };
 
 export default BasicForm;
+
+*/
+
+// Day Five
+
+const TimerComponent: React.FC = () => {
+  const [seconds, setSeconds] = useState(0);
+
+  useEffect(() => {
+    console.log("Component mounted");
+
+    // Start a timer
+    const timer = setInterval(() => {
+      setSeconds((prev) => prev + 1);
+    }, 1000);
+
+    // Cleanup on unmount
+    return () => {
+      console.log("Component unmounted");
+      clearInterval(timer); // Clears the timer when the component is unmounted
+    };
+  }, []); // Empty dependency array means this runs only on mount and unmount
+
+  useEffect(() => {
+    console.log(`Seconds updated to: ${seconds}`);
+  }, [seconds]); // This runs whenever `seconds` is updated
+
+  return (
+    <div>
+      <h1>Timer</h1>
+      <p>Seconds: {seconds}</p>
+    </div>
+  );
+};
+
+export default TimerComponent;

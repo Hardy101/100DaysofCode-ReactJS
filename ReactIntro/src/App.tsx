@@ -1,11 +1,11 @@
 import "./App.css";
-import BasicForm from "./components/hello";
+import { default as TMC } from "./components/hello";
 
 function App() {
   return (
     <>
       {/* <HelloWorld name={"Eghosa"} age={49} /> */}
-      <BasicForm />
+      <TMC />
     </>
   );
 }
