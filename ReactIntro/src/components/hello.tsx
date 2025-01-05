@@ -90,34 +90,78 @@ const ConditionalRendering = () => {
 export default ConditionalRendering;
 */
 
+interface FormData {
+  name: string;
+  email: string;
+  select: string;
+}
+
 const BasicForm = () => {
-  const [name, setName] = useState("");
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    select: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ): void => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    alert(`Hello ${name}!`);
+    alert(
+      `Submitted name: '${formData.name}'\n Email: '${formData.email}'\n Option: '${formData.select}'`
+    );
   };
 
   return (
     <>
-      <h1>Form</h1>
-      <form
-        onSubmit={handleSubmit}
-        className="bg-[#f5f5f5] rounded-3xl flex w-1/3 p-4"
-      >
-        <label>
-          Name:
+      <main className="p-8">
+        <form
+          onSubmit={handleSubmit}
+          className="bs-1 rounded-3xl flex flex-col gap-4 w-1/3 p-4"
+        >
+          <h1 className=" text-[#727D73] font-bold text-center">
+            Enter your details
+          </h1>
           <input
             type="text"
-            value={name}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setName(e.target.value)
-            }
-            className="bg-transparent"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Enter name..."
+            className="bg-transparent outline-none px-3 py-1 text-xs border rounded-3xl"
           />
-        </label>
-        <button type="submit">Submit</button>
-      </form>
+          <input
+            type="text"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Enter email..."
+            className="bg-transparent outline-none px-3 py-1 text-xs border rounded-3xl"
+          />
+
+          <select
+            name="select"
+            value={formData.select}
+            onChange={handleChange}
+            className="bg-transparent outline-none px-3 py-1 text-xs border rounded-3xl"
+          >
+            <option value="">--select--</option>
+            <option value="startup">Startup</option>
+            <option value="Sidehustle">Side Hustle</option>
+          </select>
+          <button
+            type="submit"
+            className="bg-[#000957] py-2 rounded-3xl text-white text-xs"
+          >
+            Submit
+          </button>
+        </form>
+      </main>
     </>
   );
 };
