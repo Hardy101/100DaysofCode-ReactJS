@@ -171,36 +171,6 @@ export default BasicForm;
 
 */
 
-// Day Five
+// Day Five - Skipped
+// Day six - React Fragments, Styling in react, React Router Basics
 
-const TimerComponent: React.FC = () => {
-  const [seconds, setSeconds] = useState(0);
-
-  useEffect(() => {
-    console.log("Component mounted");
-
-    // Start a timer
-    const timer = setInterval(() => {
-      setSeconds((prev) => prev + 1);
-    }, 1000);
-
-    // Cleanup on unmount
-    return () => {
-      console.log("Component unmounted");
-      clearInterval(timer); // Clears the timer when the component is unmounted
-    };
-  }, []); // Empty dependency array means this runs only on mount and unmount
-
-  useEffect(() => {
-    console.log(`Seconds updated to: ${seconds}`);
-  }, [seconds]); // This runs whenever `seconds` is updated
-
-  return (
-    <div>
-      <h1>Timer</h1>
-      <p>Seconds: {seconds}</p>
-    </div>
-  );
-};
-
-export default TimerComponent;
