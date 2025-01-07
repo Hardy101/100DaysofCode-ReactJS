@@ -1,7 +1,13 @@
 import "./App.css";
-
+import ConditionalRendering from "./components/.hello";
+import PlaceHolderPage from "./components/daySix";
 function App() {
-  return <>{/* <HelloWorld name={"Eghosa"} age={49} /> */}</>;
+  return (
+    <>
+      <ConditionalRendering />
+      <PlaceHolderPage />
+    </>
+  );
 }
 
 export default App;
