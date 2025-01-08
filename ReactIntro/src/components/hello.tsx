@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter, Link } from "react-router-dom";
+import PlaceHolderPage from "./daySix";
 
 // Day One
 /* 
@@ -91,6 +93,7 @@ export default ConditionalRendering;
 
 
 */
+
 // Day 3 - Conditional Rendering, Lists and keys
 const ConditionalRendering = () => {
   const [isLoggedIn, setisLoggedIn] = useState(false);
@@ -100,15 +103,16 @@ const ConditionalRendering = () => {
   };
 
   const navLinks = [
-    { id: 0, title: "Home" },
-    { id: 1, title: "About" },
-    { id: 2, title: "Services" },
-    { id: 3, title: "Contact" },
+    { id: 0, title: "Home", path: "/" },
+    { id: 1, title: "Day Six", path: "/PlaceHolder" },
+    { id: 2, title: "Services", path: "/" },
+    { id: 3, title: "Contact", path: "/" },
   ];
-
   return (
     <main className="p-4">
-      <h1 className="font-bold text-3xl text-red">Day #3 conditional rendering</h1>
+      <h1 className="font-bold text-3xl text-red">
+        Day #3 conditional rendering
+      </h1>
       <p className="mt-4">
         <button
           onClick={toggleLoggedIn}
@@ -117,20 +121,21 @@ const ConditionalRendering = () => {
           {isLoggedIn ? "Logout" : "Login"}
         </button>
       </p>
-      <p className="mt-4">
-        {isLoggedIn && (
-          <ul className="flex flex-row gap-4 text-xs font-bold">
-            {navLinks.map((link) => (
-              <li key={link.id}> {link.title} </li>
-            ))}
-          </ul>
-        )}
-      </p>
+      {isLoggedIn && (
+        <ul className="flex flex-row gap-4 text-xs font-bold mt-4">
+          {navLinks.map((link) => (
+            <li key={link.id}>
+              <Link to={link.path}>{link.title}</Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </main>
   );
 };
 
 export default ConditionalRendering;
+
 // // Day four - five
 // interface FormData {
 //   name: string;

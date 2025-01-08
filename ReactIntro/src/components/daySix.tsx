@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 // Day Six - React Fragments, Styling in react, React Router Basics
 /* 
@@ -26,15 +27,28 @@ Programmatic navigation between routes.
 
 */
 const PlaceHolderPage: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleGoBack = () => {
+    navigate(-1); // Navigate to the previous page
+  };
   return (
     <>
       <div className="container mx-auto p-4">
-        <h1 className="text-3xl font-bold mb-4">Hello, Tailwind!</h1>
-        <p className="text-lg text-gray-700">
-          This is a simple React page with Tailwind CSS styling.
-        </p>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          Click Me
+        <h1 className="text-3xl font-bold mb-4">Hello, Here!</h1>
+        <p>This is documentation for day six of learning react.</p>
+        <p>Today i learned various things. Check the list 👇 for details</p>
+        <ul className="mt-4">
+          <li>
+            I learned how to route components, it was really difficult yesterday
+            because i was very very hungry😂
+          </li>
+        </ul>
+        <button
+          onClick={handleGoBack}
+          className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 text-sm"
+        >
+          Go back
         </button>
       </div>
     </>
