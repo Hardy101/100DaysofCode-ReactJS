@@ -1,17 +1,17 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import ConditionalRendering from "./components/hello";
-import PlaceHolderPage from "./components/daySix";
+import FormValidate from "./components/dayNine-FormValidate";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<ConditionalRendering />} />
-        <Route path="/PlaceHolder" element={<PlaceHolderPage />} />
-      </Routes>
-    </Router>
+    <FormValidate />
+    // <Router>
+    //   <Routes>
+    //     <Route path="/" element={<ConditionalRendering />} />
+    //     <Route path="/PlaceHolder" element={<PlaceHolderPage />} />
+    //   </Routes>
+    // </Router>
   );
 }
 
