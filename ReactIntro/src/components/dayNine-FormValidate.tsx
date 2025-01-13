@@ -5,73 +5,86 @@ interface FormData {
   email: string;
 }
 
-const FormValidate = () => {
+const FormWithValidation: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({ name: "", email: "" });
-
   const [errors, setErrors] = useState<{ name?: string; email?: string }>({});
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
 
-    // Handle
-    setErrors((prev => ({...prev, [name]: undefined})))
+    setErrors((prev) => ({ ...prev, [name]: undefined }));
   };
 
   const validate = (): boolean => {
     const newErrors: { name?: string; email?: string } = {};
+
     if (!formData.name.trim()) {
-      newErrors.name = "Name is required";
+      newErrors.name = "Name is required!";
     }
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
+    if (!formData.name.trim()) {
+      newErrors.email = "Email is required!";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Invalid email format";
+      newErrors.email = "Invalid Email format";
     }
 
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    return Object.entries(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (validate()) {
-      console.log("Form submitted successfully:", formData);
-      alert("Form submitted successfully!");
-      setFormData({ name: "", email: "" }); // Reset the form
+      alert("Form Submitted Successfully");
+      setFormData({ name: "", email: "" });
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="name">Name:</label>
+    <main className="flex justify-center p-16">
+      <form
+        onSubmit={handleSubmit}
+        className="bs-1 rounded-3xl flex flex-col gap-4 w-1/3 p-4"
+      >
+        <h1 className=" text-[#727D73] font-bold text-center">
+          Enter your details
+        </h1>
         <input
           type="text"
-          id="name"
           name="name"
           value={formData.name}
           onChange={handleChange}
+          placeholder="Enter name..."
+          className="bg-transparent outline-none px-3 py-1 text-xs border rounded-3xl"
         />
-        {errors.name && <p style={{ color: "red" }}>{errors.name}</p>}
-      </div>
-
-      <div>
-        <label htmlFor="email">Email:</label>
+        {errors.name && (
+          <span className="text-red-500 px-3 text-xs font-bold">
+            {errors.name}
+          </span>
+        )}
         <input
-          type="email"
-          id="email"
+          type="text"
           name="email"
           value={formData.email}
           onChange={handleChange}
+          placeholder="Enter email..."
+          className="bg-transparent outline-none px-3 py-1 text-xs border rounded-3xl"
         />
-        {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
-      </div>
-
-      <button type="submit">Submit</button>
-    </form>
+        {errors.email && (
+          <span className="text-red-500 px-3 text-xs font-bold">
+            {errors.email}
+          </span>
+        )}
+        <button
+          type="submit"
+          className="bg-[#000957] py-2 rounded-3xl text-white text-xs"
+        >
+          Submit
+        </button>
+      </form>
+    </main>
   );
 };
 
-export default FormValidate;
+export default FormWithValidation;
