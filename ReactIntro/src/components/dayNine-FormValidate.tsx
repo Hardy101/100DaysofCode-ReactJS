@@ -22,7 +22,7 @@ const FormWithValidation: React.FC = () => {
     if (!formData.name.trim()) {
       newErrors.name = "Name is required!";
     }
-    if (!formData.name.trim()) {
+    if (!formData.email.trim()) {
       newErrors.email = "Email is required!";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = "Invalid Email format";
@@ -45,7 +45,7 @@ const FormWithValidation: React.FC = () => {
     <main className="flex justify-center p-16">
       <form
         onSubmit={handleSubmit}
-        className="bs-1 rounded-3xl flex flex-col gap-4 w-1/3 p-4"
+        className="bs-1 rounded-3xl flex flex-col gap-4 md:w-1/3 p-4"
       >
         <h1 className=" text-[#727D73] font-bold text-center">
           Enter your details
