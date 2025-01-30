@@ -1,17 +1,24 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import FormWithValidation from "./components/dayNine-FormValidate";
+import ErrorBoundary from "./components/dayElevenErrorBoundaries";
+import BuggyComponent from "./components/BuggyComponent";
 
 function App() {
   return (
-    <>{/* <FormWithValidation /> */}</>
-    // <Router>
+    <>
+      {/* <FormWithValidation /> */}
+      {/* // <Router>
     //   <Routes>
     //     <Route path="/" element={<ConditionalRendering />} />
     //     <Route path="/PlaceHolder" element={<PlaceHolderPage />} />
     //   </Routes>
-    // </Router>
+    // </Router> */}
+      <ErrorBoundary>
+        <BuggyComponent />
+      </ErrorBoundary>
+      ;
+    </>
   );
 }
 
