@@ -4,6 +4,8 @@ import "./App.css";
 import ErrorBoundary from "./components/dayElevenErrorBoundaries";
 import BuggyComponent from "./components/BuggyComponent";
 import Modal from "./components/modal";
+import Parent from "./components/dayThirteen";
+import InputFocus from "./components/dayFourteen";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -21,7 +23,7 @@ function App() {
         <BuggyComponent />
       </ErrorBoundary>
       ; */}
-      <div className="py-16 text-center">
+      {/* <div className="py-16 text-center">
         <h1 className="font-bold mb-4 text-2xl">React Portals Example</h1>
         <button className="bg-blue-100 text-blue-500 rounded-3xl font-bold py-2 px-4" onClick={() => setShowModal(true)}>Open Modal</button>
         {showModal && (
@@ -30,7 +32,10 @@ function App() {
             <p>This modal is rendered using a React Portal.</p>
           </Modal>
         )}
-      </div>
+      </div> */}
+      {/* <Parent /> */}
+      < InputFocus />
+
     </>
   );
 }
