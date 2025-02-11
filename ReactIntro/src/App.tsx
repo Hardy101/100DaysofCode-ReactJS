@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import ErrorBoundary from "./components/dayElevenErrorBoundaries";
-import BuggyComponent from "./components/BuggyComponent";
-import Modal from "./components/modal";
-import Parent from "./components/dayThirteen";
-import InputFocus from "./components/dayFourteen";
-import UsersList from "./components/dayFifteen";
+// import ErrorBoundary from "./components/dayElevenErrorBoundaries";
+// import BuggyComponent from "./components/BuggyComponent";
+// import Modal from "./components/modal";
+// import Parent from "./components/dayThirteen";
+// import InputFocus from "./components/dayFourteen";
+// import UsersList from "./components/dayFifteen";
+import Counter from "./features/counter/counter";
 
 function App() {
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
 
   return (
     <>
@@ -37,6 +37,7 @@ function App() {
       {/* <Parent /> */}
       {/* // <InputFocus /> */}
       {/* <UsersList /> */}
+      <Counter />
     </>
   );
 }
